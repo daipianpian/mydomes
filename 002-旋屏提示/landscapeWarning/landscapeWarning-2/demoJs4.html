@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+	<meta name="format-detection"content="telephone=no"> 
+	<title>demoJs5</title>
+	<link href="css/style.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+
+	<!--旋屏提示-->
+	<div id="orientLayer" class="mod-orient-layer">
+	    <div class="mod-orient-layer__content">
+	        <i class="icon mod-orient-layer__icon-orient"></i>
+	        <div class="mod-orient-layer__desc">为了更好的体验，请使用竖屏浏览</div>
+	    </div>
+	</div>
+	
+	<script type="text/javascript">
+		//获取提示浮层id
+		var orientLayer = document.getElementById('orientLayer');
+
+		//判断横屏竖屏
+		function orientationChange() {
+		switch(window.orientation) {
+		  case -90: 
+		        orientLayer.style.display='block';            
+		        break;
+		  case 90:
+		        orientLayer.style.display='block';             
+		        break;
+		  case 0:
+		  case 180:
+		        orientLayer.style.display='none';
+		        break;
+		}};
+
+		window.onorientationchange =orientationChange;
+	</script>
+</body>
+</html>

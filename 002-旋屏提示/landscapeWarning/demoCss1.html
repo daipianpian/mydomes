@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+	<meta name="format-detection"content="telephone=no">
+	<title>demoCss1</title>
+	<link href="css/style.css" type="text/css" rel="stylesheet" />
+	<style>
+	/*#container{width: 100%;height: 100%;background: pink;}*/
+
+	@-webkit-keyframes rotation {
+	    10% { transform: rotate(90deg); -webkit-transform: rotate(90deg) }
+	    50%, 60% { transform: rotate(0deg); -webkit-transform: rotate(0deg) }
+	    90% { transform: rotate(90deg); -webkit-transform: rotate(90deg) }
+	    100% { transform: rotate(90deg); -webkit-transform: rotate(90deg) }
+	}
+	@keyframes rotation {
+	    10% { transform: rotate(90deg); -webkit-transform: rotate(90deg) }
+	    50%, 60% { transform: rotate(0deg); -webkit-transform: rotate(0deg) }
+	    90% { transform: rotate(90deg); -webkit-transform: rotate(90deg) }
+	    100% { transform: rotate(90deg); -webkit-transform: rotate(90deg) }
+	}
+
+	#orientLayer { display: none; }
+	@media screen and (min-aspect-ratio: 13/9) { 
+		#orientLayer { display: block; } 
+	}
+
+	.mod-orient-layer { display: none; position: fixed; height: 100%; width: 100%; left: 0; top: 0; right: 0; bottom: 0; background: #000; z-index: 9997 }
+	.mod-orient-layer__content { position: absolute; width: 100%; top: 45%; margin-top: -75px; text-align: center }
+	.mod-orient-layer__icon-orient {background-image: url("images/pixels.png");display: inline-block; width: 67px; height: 109px;
+	    transform: rotate(90deg); -webkit-transform: rotate(90deg); -webkit-animation: rotation infinite 1.5s ease-in-out; animation: rotation infinite 1.5s ease-in-out; -webkit-background-size: 67px; background-size: 67px }
+	.mod-orient-layer__desc { margin-top: 20px; font-size: 15px; color: #fff }
+	</style>
+</head>
+<body>
+
+	<!-- <div id="container"></div> -->
+
+	<!--旋转提示-->
+	<div id="orientLayer" class="mod-orient-layer">
+	    <div class="mod-orient-layer__content">
+	        <i class="icon mod-orient-layer__icon-orient"></i>
+	        <div class="mod-orient-layer__desc">为了更好的体验，请使用竖屏浏览</div>
+	    </div>
+	</div>
+
+	<script type="text/javascript">
+	/*var w = document.documentElement.clientWidth;
+	var h = document.documentElement.clientHeight;
+	var pm1 = document.getElementById('container');
+	pm1.style.width = w+'px';
+	pm1.style.height = h+'px';
+	console.log('可视区域宽'+w+'；'+'可视区域高'+h);*/
+	</script>
+</body>
+</html>

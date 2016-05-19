@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+	<meta name="format-detection"content="telephone=no">
+	<title>input</title>
+	<!-- <link href="style/style.css" type="text/css" rel="stylesheet" /> -->
+	<style>
+	body,html{background-color: #FCFCFC;}
+	#demo p{position:relative;margin:10px 0;}
+	#demo p label{position:absolute;left:0;margin-left:8px;display:block;width:160px;font-size: 16px;}
+	#demo p input{width:200px;height:18px;line-height: 18px; margin:0 8px 0 160px; border: 1px solid #ccc; border-radius: 2px; background-color: #FCFCFC;}
+	#demo p span{color:#555;}
+	#demo p input[type=search]{-webkit-appearance:textfield;}
+	</style>
+</head>
+<body>
+<!--DEMO start-->
+<div id="demo">
+<form id="iform">
+	<p><label for="email">email类型：</label><input type="email" name="email" id="email" placeholder="请输入正确mail地址" /></p>
+	<p><label for="url">url类型：</label><input type="url" id="url" /></p>
+	<p><label for="date">date类型：</label><input type="date" id="date" /></p>
+	<p><label for="time">time类型：</label><input type="time" id="time" /></p>
+	<p><label for="datetime">datetime类型：</label><input type="datetime" id="datetime" /></p>
+	<p><label for="datetime-local">datetime-local类型：</label><input type="datetime-local" id="datetime-local" /></p>
+	<p><label for="month">month类型：</label><input type="month" id="month" /></p>
+	<p><label for="week">week类型：</label><input type="week" id="week" /></p>
+	<p><label for="number">number类型：</label><input type="number" name="number" id="number" /></p>
+	<p><label for="range">range类型：</label><input type="range" id="range" /></p>
+	<p><label for="search">search类型：</label><input type="search" results="n"  id="search" value="12"/></p>
+	<p><label for="tel">tel类型：</label><input type="tel" id="tel" /></p>
+	<p><label for="color">color类型：</label><input type="color" id="color" /></p>
+	<p><label for="placeholder">placeholder属性：</label><input type="text" id="placeholder" placeholder="点击我会以清除" /></p>
+	<p><label for="autofocus">autofocus属性：</label><input type="text" id="autofocus" autofocus="true"/></p>
+	<p><label for="autoconmplete">autoconmplete属性：</label><input type="text" id="autoconmplete" autoconmplete="on"/></p>
+	<p><label for="list">list属性：</label><input type="text" id="list" list="ilist"/>
+		<datalist id="ilist">
+			<option label="a" value="a">
+			<option label="b" value="b">
+			<option label="c" value="c">
+		</datalist>
+	</p>
+	<p><label for="pattern">pattern属性：</label><input type="text" name="require2" id="pattern" placeholder="输入邮政编码" required pattern="^[1-9]\d{5}$" /></p>							
+	<p><label for="require">require属性：</label><input type="text" name="require" id="require" placeholder="必填项" required /></p>							
+	<p><label for="range2">pattern属性：</label><input type="range" id="range2" max="100" min="1" step="20" /></p>
+	<p><label for="sub">submit类型</label><input type="submit" id="sub" value="提交" /></p>
+</form>
+
+
+
+
+
+
+</div>
+<!--DEMO end-->
+
+</body> 
+</html> 
+
+
+

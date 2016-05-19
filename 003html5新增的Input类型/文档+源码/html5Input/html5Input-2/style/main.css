@@ -1,0 +1,27 @@
+@charset "utf-8";body,html {
+    width: 100%;
+    overflow-x: hidden
+}
+
+body {
+    color: #000;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%)
+}
+
+@media all and (orientation : portrait) {
+    body {
+        -webkit-transform:translate(-50%,-50%) rotate(90deg);
+        transform: translate(-50%,-50%) rotate(90deg)
+    }
+}
+
+@media all and (orientation : landscape) {
+    body {
+        -webkit-transform:translate(-50%,-50%) rotate(0);
+        transform: translate(-50%,-50%) rotate(0)
+    }
+}
