@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+	<meta name="format-detection"content="telephone=no">
+	<title>demo1-1</title>
+  <style type="text/css">
+      #anim{
+          background-image: url("images/anim.png");
+          width:120px;
+          height:120px;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          margin-top: -60px;
+          margin-left: -60px;
+          -webkit-animation: auto-circle 0.5s steps(5) infinite;
+      }
+
+      @-webkit-keyframes auto-circle{
+          100%{
+            background-position-x: 600px;
+          }
+      }
+  </style>
+</head>
+<body>
+	<div id="anim"></div>
+</body>
+</html>

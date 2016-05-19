@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<title>Canvas Demo</title>
+    <script>
+        var canvas = null;//初始化参数
+        var img = null;
+        var ctx = null;
+        var imageReady = false;
+        window.onload = function() {
+            var canvas = document.getElementById("animation_canvas");
+            canvas.width = canvas.parentNode.clientWidth;
+            canvas.height = canvas.parentNode.clientHeight;
+            
+            if (!canvas.getContext) {
+                console.log("Canvas not supported. Please install a HTML5 compatible browser.");
+                return;
+            }    
+            // get 2D context of canvas and draw rectangel
+            ctx = canvas.getContext("2d");
+            ctx.fillStyle="black";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            console.log(canvas.height);
+            img = document.createElement('img');
+            img.src = "images/ab0.png";
+            img.onload = loaded();
+        }  
+        //保证只有图像加载后才开始循环动画
+        function loaded() {
+            imageReady = true;
+            setTimeout( update, 1000/3);//添加3帧每秒间隔计时器
+        }
+        function redraw() {
+            ctx.fillStyle="black";
+            ctx.fillRect(0, 0, 460, 460);
+            ctx.drawImage(img, 0, 0, 232, 180);
+            
+        }    
+
+        
+    //为了让图片以规定的速度动画，我们必须追踪已经经过的时间，然后根据分配给每帧的时间播放帧。基本步骤是：
+
+    //1、按每秒几帧设置动画速度(msPerFrame)。
+
+    //2、当你循环游戏时，计算一下自最后一帧以后已经经过了多少时间（delta）。
+
+    //3、如果已经经过的时间足够把动画帧播完，那么播放这一帧并设置累积delta为0。
+
+    //4、如果已经经过的时间不够，那么记住（累积）delta时间（acDelta）。
+        var frame = 0;
+        var lastUpdateTime = 0;
+        var acDelta = 0;
+        var msPerFrame = 200;
+        function update() {
+            requestAnimFrame(update);
+            var delta = Date.now() - lastUpdateTime;
+            //console.log(Date.now(),lastUpdateTime);
+            if (acDelta > msPerFrame)
+            {
+            acDelta = 0;
+            redraw();
+            img.src='images/ab'+frame+'.png';
+            frame++; if
+            (frame >= 3) frame = 0; //当绘制后且帧推进完，计时器就会重置。
+            } else {
+
+            acDelta += delta;
+        
+            }
+            lastUpdateTime = Date.now();
+        }
+
+    //requestAnimFrame的作用基本上就是setTimeout，但浏览器知道你正在渲染帧，所以它可以优化绘制循环，以及如何与剩下的页面回流。
+    
+    //在某些情况下，setTimeout比requestAnimFrame更好用，特别是对于手机。
+    
+    //以下是在不同的浏览器上调用requestAnimFrame的情况也不同，标准的检测方法如下：
+    window.requestAnimFrame = (function(){
+    return window.requestAnimationFrame ||
+    window.webkitRequestAnimationFrame ||
+    window.mozRequestAnimationFrame ||
+    window.oRequestAnimationFrame ||
+    window.msRequestAnimationFrame ||
+    function( callback ){
+    window.setTimeout(callback, 1000 / 3); //如果requestAnimFrame支持不可用，还是可以用回内置的setTimeout。
+    };
+    })();
+
+</script>
+</head>
+<body style="position:absolute;margin:0;padding:0;width:100%;height:100%;">
+<canvas id="animation_canvas"></canvas>
+</body>
+</html>

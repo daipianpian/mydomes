@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+  <meta name="format-detection"content="telephone=no">
+  <title>demoCanvas</title>
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <style type="text/css">
+	#anim{
+		width:120px;
+		height:120px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin-top: -60px;
+		margin-left: -60px;
+		background-repeat: no-repeat;
+	}
+  </style>
+
+  <script src="http://apps.bdimg.com/libs/zepto/1.1.4/zepto.min.js"></script>
+  <script src="js/preloadjs-0.6.2.min.js"></script>
+  <script src="js/easeljs-0.8.2.min.js"></script>
+
+</head>
+<body>
+    <div id="anim">
+	    <canvas id="animCanvas" width="120" height="120" style=" width:375px; height:627px"></canvas><!-- canvas 画布 即为creatjs的舞台 -->
+	</div>
+
+<script>
+var loader;
+var img;
+var stage;
+var w;
+var h;
+  window.onload=function(){
+    stage = new createjs.Stage('animCanvas');//创建舞台
+	w=stage.canvas.width;
+	h=stage.canvas.height;
+	$('#animCanvas').css({'height':120+'px','width':120+'px'});//适配用
+	manifest = [
+			{src: 'anim.png', id: 'img'},
+	];//预加载
+	loader = new createjs.LoadQueue(false);
+		loader.addEventListener('complete', handleComplete);//加载完成 调用handleComplete函数
+		loader.addEventListener('progress', handleFileProgress);//加载完成 调用handleFileProgress函数
+		loader.loadManifest(manifest, true, 'images/');
+  	}
+	
+	function handleComplete(){//加载完成调用函数
+		var spriteSheet = new createjs.SpriteSheet({//创建精灵
+			framerate: 60,
+			'images': [loader.getResult('img')],
+			'frames': {'regX':0, 'height':120, 'count':6, 'regY': 0, 'width': 120},
+			'animations': {
+				'anim': [0, 5, 'anim'],
+			}
+		});
+		img = new createjs.Sprite(spriteSheet, 'anim');
+		stage.addChild(img);//将img加载到舞台上
+		createjs.Ticker.addEventListener('tick', tick);//刷新
+		createjs.Ticker.setFPS(5); //每秒调用tick函数 3次 控制动画快慢
+	}
+	
+	function handleFileProgress(event){//加载中函数
+	
+	   console.log(loader.progress*100|0+'%');
+	
+	}
+	
+	function tick(e){//tick函数
+	    stage.update(event);//更新舞台 
+	}
+
+</script>
+	
+</body>
+</html>

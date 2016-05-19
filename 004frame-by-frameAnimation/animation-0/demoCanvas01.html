@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+  <meta name="format-detection"content="telephone=no">
+  <title>demo-2</title>
+  <style type="text/css">
+      #anim{
+          width:120px;
+          height:120px;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          margin-top: -60px;
+          margin-left: -60px;
+          /*-webkit-animation: auto-circle 0.5s step-end infinite;*/
+      }
+  </style>
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+  <script type="text/javascript">
+  var canvas = document.getElementById("canvas");
+  var context = canvas.getContext("2d");
+
+  function MovieClip(x, y, img, width, height, totalFrame, fps)
+  {
+      this.x = x;
+      this.y = y;
+      this.img = document.getElementById(img);
+      this.time = 0;
+      this.frame = 0;
+      this.width = width;
+      this.height = height;
+      this.totalFrame = totalFrame;
+      this.fps = fps || 1;
+  }
+
+  MovieClip.prototype.draw = function()
+  {
+      this.time ++;
+      if(this.time % this.fps == 0)
+      {
+          this.frame ++;
+          if(this.frame == this.totalFrame) this.frame = 0;
+      }
+
+      var frame = this.frame;
+      context.drawImage(this.img, this.frame * 120, 0, 120, 120, this.x, this.y, this.width, this.height);
+  }
+  </script>
+</body>
+</html>
