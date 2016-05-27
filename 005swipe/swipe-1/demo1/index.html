@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta id="jdouview" name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<link rel="stylesheet" href="style/css.css">
+<script src="js/zepto.min.js"></script>
+<script src="js/touch.js"></script>
+<script src="js/js.js"></script>
+<title>h5案例分享</title>
+</head>
+
+<body>
+<!-- start loading-->
+<div class="loading" id="loading">
+
+</div>
+<!-- end loading-->
+
+<!-- start wrapper-->
+<div class="wrapper">
+			<!--第1屏  start-->
+			<div id="layout_1" class="lay lay1" style="background:#0C9">
+				<div class="inner">
+                   第一屏
+                   <div class="transition demo"></div>
+				</div>
+			</div>
+			<!--第1屏  end-->
+            
+            
+            <!--第2屏  start-->
+			<div id="layout_2" class="lay lay1" style="background:#609">
+				<div class="inner">
+                   第二屏
+                   <div class="demo animated wobble"></div>
+				</div>
+			</div>
+			<!--第2屏  end-->
+             
+            <!--第3屏  start-->
+			<div id="layout_3" class="lay lay2" style="background:#679">
+				<div class="inner">
+                   第三屏
+				</div>
+			</div>
+			<!--第2屏  end-->           
+</div>
+<!-- end wrapper-->
+<script>
+
+/* loading */
+var percentage=0
+var timeId=timeId2=null
+var progress=function(){	
+	timeId2=setTimeout(function(){
+		if(percentage>95){
+			clearTimeout(timeId)
+			clearTimeout(timeId2)
+			percentage=95
+		}
+		$('.loadingNum').text(percentage)
+		percentage=percentage+5
+		timeId=setTimeout(arguments.callee,500)
+	},1000)
+}
+
+install();
+
+/* page */
+var touchscroll=true;
+var Layout = {
+    page: function (i, _h){
+        $(".wrapper").css({ "-webkit-transform": "translate3d(0px, -" + _h * i +"px, 0px)" });
+        $(".lay").removeClass("active");
+		if(i==-1){i=0}
+        $("#layout_" + (i + 1)).addClass("active");
+    },
+    swipe: function(_h, _len){
+		
+        var _this = this;
+        $(".lay").each(function(index, obj){
+            $(obj).on("swipeUp", function(){
+			if(touchscroll==true){
+                index = index < (_len - 1) ? index : -1;
+                _this.page(index + 1, _h);
+				}
+            }).on("swipeDown", function(){
+			if(touchscroll==true){
+                index = index == -1 ? _len - 1 : index;
+                _this.page(index - 1, _h);
+				}
+            });
+        });
+    },
+    init: function(){
+        var _this = this,
+            _w = $(window).width(),
+            _h = $(window).height(),
+            _len = $(".lay").length;
+	
+        $(".wrapper").width('100%').height( _h * _len ).addClass("ease");
+
+        $(".lay").width('100%').height( _h );
+
+        
+
+       
+            
+        $("#loading").width('100%').height(_h);
+        $("#loading").addClass("active");        
+                
+        progress();
+        
+
+        
+        window.onload=function(){
+        	$('.loadingNum').text(100);
+        	$(".loading").hide();
+        	_this.page(0, _h);
+            _this.swipe(_h, _len);
+        	
+        }
+
+    }
+}
+Layout.init();
+
+</script>
+</body>
+</html>
