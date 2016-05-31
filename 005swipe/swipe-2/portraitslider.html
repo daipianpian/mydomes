@@ -10,57 +10,26 @@
 <title>portraitslider</title>
 <style>
 /* 注意加html标签，使得高度100%等于视窗高度 */
-html,body{
-  width:100%;
-  height:100%;
-  margin:0 ;
-  padding:0 ;
-  overflow:hidden;
-  
-}
+html,body{ width:100%; height:100%; margin:0; padding:0; overflow:hidden; }
 
 /*滑动页面的统一样式 */
-.pages{
-  width: 100%;
-	height: 100%;
-	position: relative;
-  
-}
-.page {
-  font-size:100px;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	overflow: hidden;
-}
+.pages{ width: 100%; height: 100%; position: relative; }
+.page { font-size:100px; position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; }
 
-.page1{background:pink;}
-.page2{background:lightgreen;}
-.page3{background:skyblue;}
-.page4{background:red;}
-.page5{background:green;}
-.page6{background:blue;}
+.page1{ background:pink; }
+.page2{ background:lightgreen; }
+.page3{ background:skyblue; }
+.page4{ background:red; }
+.page5{ background:green; }
+.page6{ background:blue; }
 
 /* the box animation */
-.box{
-  width:100px ;
-  height:100px; 
-  background:black ; 
-}
+.box{ width:100px; height:100px; background:black; }
 
 /* 所有动画使用类控制 */
-.play .myAnimation{
-  animation:move 1s ease 1 both ;
-  -webkit-animation: move 1s ease 1 both ;
-}
+.play .myAnimation{animation:move 1s ease 1 both ;-webkit-animation: move 1s ease 1 both ;}
 @-webkit-keyframes move{
-  100%{
-    -webkit-transform:translate3d(150px,0,0);
-    transform:translate3d(150px,0,0);
-     -ms-transform: translate3d(150px,0,0);
-  }
+  100%{-webkit-transform:translate3d(150px,0,0);transform:translate3d(150px,0,0);-ms-transform: translate3d(150px,0,0);}
 } 
 </style>
 </head>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<h1 style="font-size:28px; text-align: center;font-weight: bold;">移动端滑屏</h1><br />
+	<p style="text-indent:2em;">移动端触屏滑动的效果的效果在电子设备上已经被应用的越来越广泛，类似于PC端的图片轮播，但是在移动设备上，要实现这种轮播的效果，就需要用到核心的touch事件。处理touch事件能跟踪到屏幕滑动的每根手指。</p>
+
+	<h2 style="font-size:20px;font-weight: bold;">以下是四种touch事件</h2>
+	<p>touchstart: //触摸屏幕时触发；即使已经有一个手指放在了屏幕上也会触发。
+touchmove: //在屏幕上滑动时连续的触发。在这个事件发生期间，调用preventDefault()可阻止滚动。
+touchend: //从屏幕上移开时触发。
+touchcancel: //系统取消touch事件的时候触发，这个好像比较少用。</p>
+	<p style="text-indent:2em;">上面这几个事件都会冒泡，也都可以取消。虽然这些触摸事件没有在DOM规范中定义，但它们却是以兼容DOM的方式实现的。因此，每个触摸事件没有在DOM规范中定义，但它们却是以兼容DOM的方式实现的。因此，每个触摸事件的event对象都提供了在鼠标事件中常见的属性:bubbles、cancelable、view、clientX、clientY、screenX、screenY、detail、altKey、shiftKey、ctrlKey和metaKey。</p>
+	<p style="text-indent:2em;">每个触摸事件被触发后，会生成一个event对象，event对象里额外包括以下三个触摸列表。</p>
+	<p>touches：//表示当前跟踪的触摸操作的touch对象的数组。<br />
+	当一个手指在触屏上时，event.touches.length=1,<br />
+	当两个手指在触屏上时，event.touches.length=2，以此类推。</p>
+	<p>targetTouches：//特定于事件目标的touch对象数组。因为touch事件是会冒泡的，所以利用这个属性指出目标对象。</p>
+	<p>changedTouches：//表示自上次触摸以来发生了什么改变的touch对象的数组。</p>
+
+	<p style="text-indent:2em;">这些列表里的每次触摸由touch对象组成，touch对象里包含着触摸信息，主要属性如下：</p>
+
+
+	<h1 style="font-size:28px; text-align: center;font-weight: bold;"></h1><br />
+
+	<h2 style="font-size:20px;font-weight: bold;"></h2>
+
+	<p style="text-indent:2em;"></p>
+
+	<span style="font-weight: bold;"></span>
+
+	<p style="width:100%;text-align: center;color:#F00;margin-top:5px;">演示demo链接</p>
+
+</body>
+</html>

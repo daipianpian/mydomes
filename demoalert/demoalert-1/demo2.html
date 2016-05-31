@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+	<meta name="format-detection"content="telephone=no">
+	<title>Document</title>
+	<link href="style/style.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+	<div id="lay">
+		<div class="div1">
+			<div id="anniu1"></div>
+			<div id="anniu2"></div>
+		</div>
+		<div id="kuang"></div>
+	</div>
+	<script type="text/javascript">
+	/*var w = document.documentElement.clientWidth;
+	var h = document.documentElement.clientHeight;
+	/*var lay = document.getElementById('lay');
+
+	console.log('可视区域宽'+w+'；'+'可视区域高'+h);
+
+	var kuang = document.getElementById('kuang');
+
+
+	window.onscroll = function () {  
+        var top = document.documentElement.scrollTop || document.body.scrollTop;
+        console.log('top的值是：'+top);
+        
+
+		var anniu1 = document.getElementById('anniu1');
+		var anniu2 = document.getElementById('anniu2');
+
+		anniu1.onclick = function(){
+			kuang.style.display = 'block';
+			kuang.style.left = (w-200)/2+'px';
+			kuang.style.top = ((h-100)/2+top)+'px';
+		}
+
+		anniu2.onclick = function(){
+			kuang.style.display = 'block';
+			kuang.style.left = (w-200)/2+'px';
+			kuang.style.top = ((h-100)/2+top)+'px';
+		}
+    }*/
+
+
+    function pop(o){
+    	var kuang = document.getElementById(o);
+
+    	var top = document.documentElement.scrollTop || document.body.scrollTop;
+    	var w = document.documentElement.clientWidth;
+		var h = document.documentElement.clientHeight;
+
+    	
+		kuang.style.left = (w-200)/2+'px';
+		kuang.style.top = ((h-100)/2+top)+'px';
+		kuang.style.display = 'block';
+    }
+
+    var anniu1 = document.getElementById('anniu1');
+	var anniu2 = document.getElementById('anniu2');
+	
+	anniu1.onclick = function(){
+		 pop('kuang');
+	}
+
+	anniu2.onclick = function(){
+		 pop('kuang');
+	}
+	</script>
+</body>
+</html>
