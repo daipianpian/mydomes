@@ -6,13 +6,16 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
 	<meta name="format-detection"content="telephone=no">
 	<title>JS 获取浏览器、屏幕和可视区域宽高</title>
-	<link href="style/style1.css" type="text/css" rel="stylesheet" />
+	<link href="style/style2" type="text/css" rel="stylesheet" />
 </head>
 <body>
 	<div id="div1"></div>
 	<div id="div2"></div>
 	<div id="div3"></div>
+	<div id="div"></div>
+	<div class="buttons"></div>
 	<script type="text/javascript">
+	var div = document.getElementById('div');
 	//网页可见区域宽：document.body.clientWidth
 	var clientWidth = document.body.clientWidth;
 	document.write('网页可见区域宽：'+clientWidth+'px<br />');
@@ -20,6 +23,10 @@
 	//网页可见区域高：document.body.clientHeight
 	var clientHeight = document.body.clientHeight;
 	document.write('网页可见区域高：'+clientHeight+'px<br />');
+
+	div.style.width = clientWidth+'px';
+	div.style.height = clientHeight+'px';
+
 
 
 	//网页可见区域宽：document.body.offsetWidth (包括边线的宽) 
