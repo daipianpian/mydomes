@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+	<meta name="format-detection"content="telephone=no">
+	<title>JS 获取浏览器、屏幕和可视区域宽高</title>
+	<link href="style/reset.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+	<div id="div1"></div>
+	<script type="text/javascript">
+	var div1 = document.getElementById('div1');
+	//网页可见区域宽：document.body.clientWidth
+	var clientWidth = document.body.clientWidth;
+	document.write('网页可见区域宽：'+clientWidth+'px<br />');
+
+	//网页可见区域高：document.body.clientHeight
+	var clientHeight = document.body.clientHeight;
+	document.write('网页可见区域高：'+clientHeight+'px<br />');
+
+	div1.style.width = clientWidth+'px';
+	div1.style.height = clientHeight+'px';
+
+
+
+	//网页可见区域宽：document.body.offsetWidth (包括边线的宽) 
+	var offsetWidth = document.body.offsetWidth;
+	document.write('网页可见区域宽(包括边线的宽)：'+offsetWidth+'px<br />');
+
+	//网页可见区域高：document.body.offsetHeight (包括边线的宽)
+	var offsetHeight = document.body.offsetHeight;
+	document.write('网页可见区域高(包括边线的高)：'+offsetHeight+'px<br />');
+
+	//网页正文全文宽：document.body.scrollWidth
+	var scrollWidth = document.body.scrollWidth;
+	document.write('网页正文全文宽：'+scrollWidth+'px<br />');
+
+	//网页正文全文高：document.body.scrollHeight
+	var scrollHeight = document.body.scrollHeight;
+	document.write('网页正文全文高：'+scrollHeight+'px<br />');
+
+	//网页被卷去的高：document.body.scrollTop
+	var scrollTop = document.body.scrollTop;
+	document.write('网页被卷去的高：'+scrollTop+'px<br />');
+
+	//网页被卷去的左：document.body.scrollLeft
+	var scrollLeft = document.body.scrollLeft;
+	document.write('网页被卷去的左：'+scrollLeft+'px<br />');
+
+	//网页正文部分上：window.screenTop
+	var screenTop = window.screenTop;
+	document.write('网页正文部分上：'+screenTop+'px<br />');
+
+	//网页正文部分左：window.screenLeft
+	var screenLeft = window.screenLeft;
+	document.write('网页正文部分左：'+screenLeft+'px<br />');
+	
+	//屏幕分辨率的宽：window.screen.width
+	var screenWidth= window.screen.width;
+	document.write('屏幕分辨率的宽：'+screenWidth+'px<br />');
+
+	//屏幕分辨率的高：window.screen.height
+	var screenHeight= window.screen.height;
+	document.write('屏幕分辨率的高：'+screenHeight+'px<br />');
+
+	//屏幕可用工作区宽度：window.screen.availWidth
+	var availWidth= window.screen.availWidth;
+	document.write('屏幕可用工作区宽度：'+availWidth+'px<br />');
+
+	//屏幕可用工作区高度：window.screen.availHeight
+	var availHeight= window.screen.availHeight;
+	document.write('屏幕可用工作区高度：'+availHeight+'px<br />');
+
+	</script>
+</body>
+</html>
